@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Sansita:400,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -11,6 +12,69 @@
     <title>Weather Chat</title>
 </head>
 <body>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="page-header">
+            <h1>Weather Chat</h1>
+
+            <form class="cities">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="cityNameInput" placeholder="Enter city">
+                                <span class="input-group-btn">
+        <button class="btn btn-primary getTempButton" type="button">Get temp</button>
+      </span>
+                            </div><!-- /input-group -->
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+                </div>
+            </form>
+        </div>
+
+        <div class="city-display">
+
+        </div>
+    </div>
+</div>
+
+
+<script id="templateWeather" type="text/x-handlebars-template">
+
+    <div class="row cityLevel">
+        <div class="col-lg-12">
+            <div class="container-weather">
+                <div class="pull-left"><h3>{{nameCity}}</h3></div>
+                <div class="pull-right" style="margin:5px"><a href="#" class="remove-button"><span id="bin"><i
+                        class="fa fa-trash-o fa-1x" aria-hidden="true"></i></span></a></div>
+                <div class="clearfix">
+                <div class="panel-body">
+                </div> <p>{{description}}<img src='http://openweathermap.org/img/w/{{iconWeather}}.png'/></p>
+                    <p>{{cityWeatherC}}&#176;C</p>
+                    <p>{{cityWeatherF}}&#176;F</p>
+
+
+                </div>
+                <div class="panel-footer">
+                    <div class="comments-container">
+                        <div class="comments-list">
+
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="commentInput"
+                                   placeholder="Enter comment about {{nameCity}}">
+                            <span class="input-group-btn">
+        <button class="btn btn-success" id="commentButton" type="button">Comment</button>
+      </span>
+                        </div>
+                    </div><!-- /input-group -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</script>
 
 
 <script type="text/javascript" src="script.js"></script>
